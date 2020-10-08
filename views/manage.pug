@@ -16,12 +16,12 @@ html
       h4 Plan ID: #{response.subscription_id}
       p Your next payment is due on #{response.next_payment.date} and will be for #{response.next_payment.currency} #{response.next_payment.amount} 
       .buttons  
-        a#change.submit(href="http://localhost:7777/change") Change Plan
-        #cancel.submit(href="#!") Cancel Plan
+        a#change.submit(href="http://localhost:7777/change") Change Plan »
+        #cancel.submit(href="#!") Cancel Plan »
     .row.card
       h4 Payment Method
       p.paymentDetails #{response.payment_information.card_type}: •••• #{response.payment_information.last_four_digits} Expires: #{response.payment_information.expiry_date}
-      #update.submit(href="#!") Update Billing Details
+      #update.submit(href="#!") Update Billing Details »
     .row.card
       h4 Billing History
       p Your last payment was on #{response.last_payment.date} and was for #{response.last_payment.currency} #{response.last_payment.amount} 
