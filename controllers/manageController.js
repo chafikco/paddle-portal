@@ -1,15 +1,12 @@
 const request = require('request')
 const bodyParser = require('body-parser')
 
-exports.manageSubscription = (req, res) => {
-    res.render("manage", { title: "Manage Subscription" });
-  };
-
 exports.showSubscriptionPlans = (req, res) => {
+    console.log('called')
     let requestParameters = {
-        subscription_id: '12345',
-        vendor_id: '12345',
-        vendor_auth_code: '12345',
+        subscription_id: '42504',
+        vendor_id: '582',
+        vendor_auth_code: 'afe1854c367a41dc7d33b530b64dcade71ac08015335462487',
     }
 
     request.post("https://sandbox-vendors.paddle.com/api/2.0/subscription/users", {form: requestParameters}, (err, res, req) => {
@@ -17,8 +14,10 @@ exports.showSubscriptionPlans = (req, res) => {
             callback(err, null)
             return
         }
-
-        callback(null, JSON.parse(body).response)
+       
+        response = JSON.parse(res.body).response
+        console.log(response)
     })
+    res.render("manage", { title: "Manage Subscription", response: response });
 }
 

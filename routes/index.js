@@ -7,6 +7,6 @@ const { catchErrors } = require("../handlers/errorHandlers");
 
 // Do work here
 router.get("/", userController.loginArea);
-router.get("/manage", manageController.manageSubscription)
+router.get("/manage", manageController.showSubscriptionPlans)
 
 module.exports = router;
