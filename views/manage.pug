@@ -11,18 +11,30 @@ html
         vendor: 582,
       });
     style(type='text/css').
-      .body { display: flex; justify-content: center; flex-wrap: wrap; flex-direction: column; align-content: center}
+      .body { display: flex; justify-content: center; flex-wrap: wrap; flex-direction: column; align-content: center; text-align: center}
+      .currentPlan { padding: 20px; border: 2px solid grey; border-radius: 5px; margin: 10px; text-align: center}
       .row { padding: 20px; border: 2px solid grey; border-radius: 5px; margin: 10px; text-align: center}
+      .paymentDetails {text-transform: capitalize;}
+      #update {padding: 5px; border: 2px solid grey; border-radius: 5px; margin: 10px;}
+      #update:hover {cursor: pointer;}
   body.body
-    h1 Manage Subscription #{response.subscription_id}
+    h1 Manage Subscription
+    .currentPlan
+      h3 Plan ID: #{response.subscription_id}
+      p Next Payment:
+        #update(href="#!") Update Plan
+        #cancel(href="#!") Cancel Plan
     .row
-      a#update(href="#!") Click here to update your subscription
-    
+      h3 Payment Method
+      p.paymentDetails #{response.payment_information.card_type}: •••• #{response.payment_information.last_four_digits} Expires: #{response.payment_information.expiry_date}
+    .row
+      h3 Billing History
+      
 
   script.
     openCheckout = () => {
       Paddle.Checkout.open({
-        override: "#{response.update_url}"
+        override: '#{response.update_url}'
       });
     }
     document.getElementById('update').addEventListener('click', openCheckout, false);
