@@ -1,9 +1,8 @@
 doctype html
 html
   head
-    title Manage Order
+    title Manage Subscription | Paddle Customer Portal
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
     script(src="https://cdn.paddle.com/paddle/paddle.js")
     script.
       Paddle.Environment.set("sandbox");
@@ -15,22 +14,25 @@ html
       .currentPlan { padding: 20px; border: 2px solid grey; border-radius: 5px; margin: 10px; text-align: center}
       .row { padding: 20px; border: 2px solid grey; border-radius: 5px; margin: 10px; text-align: center}
       .paymentDetails {text-transform: capitalize;}
-      #update {padding: 5px; border: 2px solid grey; border-radius: 5px; margin: 10px;}
-      #update:hover {cursor: pointer;}
+      .buttons {display: flex; }
+      #update, #change, #cancel {padding: 5px; border: 2px solid grey; border-radius: 5px; margin: 10px; flex-grow: 2}
+      #update:hover, #change:hover, #cancel:hover {cursor: pointer;}
   body.body
     h1 Manage Subscription
     .currentPlan
       h3 Plan ID: #{response.subscription_id}
-      p Next Payment:
-        #update(href="#!") Update Plan
+      p Your next payment is due on #{response.next_payment.date} and will be for #{response.next_payment.currency} #{response.next_payment.amount} 
+      .buttons  
+        a#change(href="http://localhost:7777/change") Change Plan
         #cancel(href="#!") Cancel Plan
     .row
       h3 Payment Method
       p.paymentDetails #{response.payment_information.card_type}: •••• #{response.payment_information.last_four_digits} Expires: #{response.payment_information.expiry_date}
+      #update(href="#!") Update Billing Details
     .row
       h3 Billing History
+      p Your last payment was on #{response.last_payment.date} and was for #{response.last_payment.currency} #{response.last_payment.amount} 
       
-
   script.
     openCheckout = () => {
       Paddle.Checkout.open({

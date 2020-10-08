@@ -25,18 +25,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // populates req.cookies with any cookies that came along with the request
 app.use(cookieParser());
 
-// Sessions allow us to store data on visitors from request to request
-// This keeps users logged in and allows us to send flash messages
-app.use(
-  session({
-    secret: process.env.AUTH_CODE,
-    vendor_id: process.env.VENDOR_ID,
-    subscription_id: process.env.SUB_ID,
-    resave: false,
-    saveUninitialized: false,
-  })
-);
-
 // pass variables to our templates + all requests
 app.use((req, res, next) => {
   res.locals.h = helpers;

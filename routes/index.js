@@ -2,11 +2,19 @@ const express = require("express");
 const router = express.Router();
 const userController = require("../controllers/userController");
 const manageController = require("../controllers/manageController");
+const credentialsController = require("../controllers/credentialsController");
 
 const { catchErrors } = require("../handlers/errorHandlers");
 
-// Do work here
+// login area
 router.get("/", userController.loginArea);
-router.get("/manage", manageController.showSubscriptionPlans);
+router.get("/login", userController.loginArea);
+
+// middleware to save the login details to variables.env
+router.post("/save", credentialsController.saveCredentials);
+
+// manage and change area
+router.get("/manage", manageController.showPlan);
+router.get("/change", manageController.changePlan);
 
 module.exports = router;

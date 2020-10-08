@@ -1,3 +1,4 @@
-exports.loginArea = (req, res) => {
-  res.render("login", { title: "Login", vendorName: "Chaf" });
+exports.loginArea = (req, res, next) => {
+  //get form data from login
+  res.render("login");
 };

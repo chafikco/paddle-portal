@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title Change Plan | Paddle Customer Portal
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    style(type='text/css').
+      .body { display: flex; justify-content: center; flex-wrap: wrap; flex-direction: column; align-content: center; text-align: center}
+      .currentPlan { padding: 20px; border: 2px solid grey; border-radius: 5px; margin: 10px; text-align: center}
+      .row { padding: 20px; border: 2px solid grey; border-radius: 5px; margin: 10px; text-align: center}
+      .paymentDetails {text-transform: capitalize;}
+      .buttons {display: flex; }
+      #update, #change, #cancel {padding: 5px; border: 2px solid grey; border-radius: 5px; margin: 10px; flex-grow: 2}
+      #update:hover, #change:hover, #cancel:hover {cursor: pointer;}
+  body.body
+    h1 Change your plan
+    .currentPlan
+      h3 Plan ID: #{subscription_id}
+      .buttons  
+        #change(href="#!") Update Quantity
+    .row
+      h3 Plans Available
+      select
+        each response in responses
+          option(value=response.id) #{response.name}
+
+  script.
