@@ -53,11 +53,11 @@ app.use((req, res, next) => {
 // handle routes
 app.use("/", routes);
 
-// If the above route doesnt work, 404 error
-app.use(errorHandlers.notFound);
-//
-// Otherwise handle API response
-app.use(errorHandlers.apiResponse);
+// // If the above route doesnt work, 404 error
+// app.use(errorHandlers.notFound);
+// //
+// // Otherwise handle API response
+// app.use(errorHandlers.apiResponse);
 
 // export to start
 module.exports = app;
