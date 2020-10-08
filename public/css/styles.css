@@ -1,0 +1,243 @@
+body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+  font-family: Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #f5f5f8;
+  color: #36476c;
+}
+h1,
+h2,
+h3,
+h4 {
+  color: #36476c;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 5px 0px 10px 0px;
+}
+
+.currentPlan {
+  padding: 20px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  margin: 10px;
+  text-align: center;
+  width: 500px !important;
+}
+.header {
+  margin-top: 50px;
+}
+.headerText {
+  color: #36476c;
+}
+.paddleLogo {
+  height: 50px;
+}
+.submit:hover {
+  cursor: pointer;
+  background-color: #0886de;
+  border: 1px solid #0886de;
+}
+.submit {
+  margin-top: 10px;
+  background-color: #0096ff;
+  border: 1px solid #0096ff;
+  padding: 10px 25px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 500;
+  font-family: Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-radius: 5px;
+}
+.row {
+  padding: 20px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  margin: 10px;
+  text-align: center;
+  width: 500px !important;
+}
+.paymentDetails {
+  text-transform: capitalize;
+}
+.buttons {
+  display: flex;
+}
+#update,
+#change,
+#cancel {
+  margin: 10px;
+  flex-grow: 2;
+  text-decoration: none;
+}
+.card:hover {
+  box-shadow: 0 2px 30px rgba(210, 212, 222, 0.6);
+  transition: all 0.5s ease-in-out;
+}
+.card {
+  width: 300px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 50px 20px 50px;
+  border: 1px solid #ececec;
+  border-radius: 5px;
+  align-items: center;
+  background-color: #fff;
+}
+.field:focus {
+  border: 1px solid #0096ff;
+}
+.field {
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  background-color: #f5f5f8;
+  border-radius: 4px;
+  border: 1px solid #f5f5f8;
+  width: 100%;
+  font-family: Graphik, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+@font-face {
+  font-family: "Graphik";
+  src: url("Graphik-Medium.eot");
+  src: url("Graphik-Medium.eot?#iefix") format("embedded-opentype"),
+    url("Graphik-Medium.woff") format("woff"),
+    url("Graphik-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("Graphik-ExtralightItalic.eot");
+  src: url("Graphik-ExtralightItalic.eot?#iefix") format("embedded-opentype"),
+    url("Graphik-ExtralightItalic.woff") format("woff"),
+    url("Graphik-ExtralightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Graphik Super";
+  src: url("Graphik-SuperItalic.eot");
+  src: url("Graphik-SuperItalic.eot?#iefix") format("embedded-opentype"),
+    url("Graphik-SuperItalic.woff") format("woff"),
+    url("Graphik-SuperItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("Graphik-LightItalic.eot");
+  src: url("Graphik-LightItalic.eot?#iefix") format("embedded-opentype"),
+    url("Graphik-LightItalic.woff") format("woff"),
+    url("Graphik-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("Graphik-Regular.eot");
+  src: url("Graphik-Regular.eot?#iefix") format("embedded-opentype"),
+    url("Graphik-Regular.woff") format("woff"),
+    url("Graphik-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("Graphik-SemiboldItalic.eot");
+  src: url("Graphik-SemiboldItalic.eot?#iefix") format("embedded-opentype"),
+    url("Graphik-SemiboldItalic.woff") format("woff"),
+    url("Graphik-SemiboldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Graphik Super";
+  src: url("Graphik-Super.eot");
+  src: url("Graphik-Super.eot?#iefix") format("embedded-opentype"),
+    url("Graphik-Super.woff") format("woff"),
+    url("Graphik-Super.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("Graphik-MediumItalic.eot");
+  src: url("Graphik-MediumItalic.eot?#iefix") format("embedded-opentype"),
+    url("Graphik-MediumItalic.woff") format("woff"),
+    url("Graphik-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("Graphik-Thin.eot");
+  src: url("Graphik-Thin.eot?#iefix") format("embedded-opentype"),
+    url("Graphik-Thin.woff") format("woff"),
+    url("Graphik-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("Graphik-Extralight.eot");
+  src: url("Graphik-Extralight.eot?#iefix") format("embedded-opentype"),
+    url("Graphik-Extralight.woff") format("woff"),
+    url("Graphik-Extralight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("Graphik-Semibold.eot");
+  src: url("Graphik-Semibold.eot?#iefix") format("embedded-opentype"),
+    url("Graphik-Semibold.woff") format("woff"),
+    url("Graphik-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("Graphik-Light.eot");
+  src: url("Graphik-Light.eot?#iefix") format("embedded-opentype"),
+    url("Graphik-Light.woff") format("woff"),
+    url("Graphik-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("Graphik-ThinItalic.eot");
+  src: url("Graphik-ThinItalic.eot?#iefix") format("embedded-opentype"),
+    url("Graphik-ThinItalic.woff") format("woff"),
+    url("Graphik-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("Graphik-RegularItalic.eot");
+  src: url("Graphik-RegularItalic.eot?#iefix") format("embedded-opentype"),
+    url("Graphik-RegularItalic.woff") format("woff"),
+    url("Graphik-RegularItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}

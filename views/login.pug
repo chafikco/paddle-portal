@@ -3,16 +3,13 @@ html
   head
     title Login | Paddle Customer Portal
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    style(type='text/css').
-      .card { width: 300px; margin: auto; display: flex; flex-direction: column; padding: 20px; border: 2px solid grey; border-radius: 2px; align-items: center}
-      .orderBox { padding: 20px; border: 2px solid grey; border-radius: 5px; margin: 10px; display: block}
-      .field { margin-bottom: 10px }
+    link(rel='stylesheet', href='/css/styles.css', type='text/css')
   body
+    .header
+      img.paddleLogo(src="https://d33wubrfki0l68.cloudfront.net/d44ced5032e91f413d47138a1f9107f2b3a90543/da230/assets/svg/logo-primary.svg")
     form(action="/save" method="POST" class="card")
-      label(for="vendor_id") Vendor ID
-      input.field(type="text" name="vendor_id")
-      label(for="auth_code") Auth Code
-      input.field(type="text" name="auth_code")
-      label(for="sub_id") Subscription ID
-      input.field(type="text" name="sub_id")
+      p.headerText Enter your credentials
+      input.field(type="text" name="vendor_id" placeholder="Vendor ID")
+      input.field(type="text" name="auth_code" placeholder="Auth Code")
+      input.field(type="text" name="sub_id" placeholder="Subscription ID")
       input.submit(type="submit" value="Submit" class="button")

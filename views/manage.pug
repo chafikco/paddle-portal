@@ -9,28 +9,21 @@ html
       Paddle.Setup({
         vendor: 582,
       });
-    style(type='text/css').
-      .body { display: flex; justify-content: center; flex-wrap: wrap; flex-direction: column; align-content: center; text-align: center}
-      .currentPlan { padding: 20px; border: 2px solid grey; border-radius: 5px; margin: 10px; text-align: center}
-      .row { padding: 20px; border: 2px solid grey; border-radius: 5px; margin: 10px; text-align: center}
-      .paymentDetails {text-transform: capitalize;}
-      .buttons {display: flex; }
-      #update, #change, #cancel {padding: 5px; border: 2px solid grey; border-radius: 5px; margin: 10px; flex-grow: 2}
-      #update:hover, #change:hover, #cancel:hover {cursor: pointer;}
+    link(rel='stylesheet', href='/css/styles.css')
   body.body
-    h1 Manage Subscription
-    .currentPlan
-      h3 Plan ID: #{response.subscription_id}
+    h2 Manage Subscription
+    .currentPlan.card
+      h4 Plan ID: #{response.subscription_id}
       p Your next payment is due on #{response.next_payment.date} and will be for #{response.next_payment.currency} #{response.next_payment.amount} 
       .buttons  
-        a#change(href="http://localhost:7777/change") Change Plan
-        #cancel(href="#!") Cancel Plan
-    .row
-      h3 Payment Method
+        a#change.submit(href="http://localhost:7777/change") Change Plan
+        #cancel.submit(href="#!") Cancel Plan
+    .row.card
+      h4 Payment Method
       p.paymentDetails #{response.payment_information.card_type}: •••• #{response.payment_information.last_four_digits} Expires: #{response.payment_information.expiry_date}
-      #update(href="#!") Update Billing Details
-    .row
-      h3 Billing History
+      #update.submit(href="#!") Update Billing Details
+    .row.card
+      h4 Billing History
       p Your last payment was on #{response.last_payment.date} and was for #{response.last_payment.currency} #{response.last_payment.amount} 
       
   script.
