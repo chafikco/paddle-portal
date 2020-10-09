@@ -11,7 +11,7 @@ html
       });
     link(rel='stylesheet', href='/css/styles.css')
   body.body
-    p.manageHeader Manage Subscription
+    p.mainHeader Manage Subscription
     .currentPlan.card
       p.headerRow Current Plan - #{response.user_email} 
       .seperator
@@ -35,8 +35,7 @@ html
         p.leftHistory #{response.last_payment.date}
         p.middleHistory #{response.last_payment.currency} #{response.last_payment.amount} 
         p.rightHistory Plan ID #{response.plan_id}
-      .button
-        a#history.submit(href="http://localhost:7777/billinghistory") View All Billing History »
+      a#history.submit.historyButton(href="http://localhost:7777/billinghistory") View All Billing History »
       
   script.
     let updateUrl = "#{response.update_url}"

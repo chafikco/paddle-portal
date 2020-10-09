@@ -5,15 +5,48 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel='stylesheet', href='/css/styles.css')
   body.body
-    h2 Change your plan
+    p.mainHeader Update Plan
     .currentPlan.card
-      h4 Plan ID: #{subscription_id}
-      .buttons  
-        #change.submit(href="#!") Update Quantity »
+      p.headerRow Update Quantity
+      .seperator
+      p.billingText Quantity
+      .flexQuantity
+        .quantitySelector
+          .minusBox
+            button.minus.field(onclick='minusBox()') -
+          input#quantity.field.number(type="number" name="quantity" value="1" disabled)
+          .plusBox
+            button.plus.field(onclick='plusBox()') +
+        .buttons  
+          a#change.submit.quantitySubmit(href=`http://localhost:7777/updatequantity/3` onclick="saveQuantity()" ) Update Quantity »
     .row.card
-      h4 Plans Available
-      select.field
-        each response in responses
-          option(value=response.id) #{response.name}
+      p.headerRow Update Plan
+      .seperator
+      .dropdownBox
+        select.field.dropdown
+          each response in responses
+            option(value=response.id) #{response.name}
+        a#plan.submit(href=`http://localhost:7777/updateplan/3936` onclick="savePlan()") Update Plan »
+        
 
   script.
+    minusBox = () => {
+      let value = parseInt(document.querySelector('.number').value, 10);
+      value = isNaN(value) ? 0 : value;
+      value--;
+      document.querySelector('.number').value = value;
+    }
+    plusBox = () => {
+      let value = parseInt(document.querySelector('.number').value, 10);
+      value = isNaN(value) ? 0 : value;
+      value++;
+      document.querySelector('.number').value = value;
+    }
+    
+    //- saveQuantity = () => {
+    //-   let newQuantity = document.querySelector('.number').value;
+    //-   console.log(newQuantity)
+    //- }
+    //- savePlan = () => {
+    //- }
+ 

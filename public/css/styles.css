@@ -43,7 +43,42 @@ p {
 .header {
   margin-top: 50px;
 }
-.manageHeader {
+.plus,
+.minus {
+  padding: 10px !important;
+}
+.plus:hover,
+.minus:hover {
+  cursor: pointer;
+}
+.quantitySelector {
+  display: flex;
+  align-items: baseline;
+}
+.flexQuantity {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.quantitySubmit {
+  box-sizing: border-box;
+}
+.number {
+  width: 50px !important;
+  text-align: center;
+  margin: 0 10px 0 10px !important;
+  padding: 10px 0 10px 15px !important;
+}
+.dropdownBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.dropdown {
+  width: 60% !important;
+  height: 40px !important;
+}
+.mainHeader {
   margin-top: 30px;
   font-weight: 500;
 }
@@ -75,6 +110,21 @@ p {
 }
 .leftHistory {
   font-weight: 500;
+}
+.historyButton {
+  box-sizing: border-box;
+  display: block;
+  width: 100% !important;
+}
+.leftBox,
+.middleBox,
+.rightBox {
+  width: 250px;
+  text-align: left;
+}
+.receiptBox {
+  display: flex;
+  justify-content: space-between;
 }
 .historyBox {
   display: flex;
@@ -126,9 +176,15 @@ p {
 #change {
   margin-right: 20px;
 }
+#plan {
+  box-sizing: border-box;
+  height: 40px;
+  text-decoration: none;
+}
 #update,
 #change,
-#cancel {
+#cancel,
+#history {
   margin-top: 10px;
   margin-bottom: 10px;
   flex-grow: 2;

@@ -3,19 +3,20 @@ html
   head
     title Billing History | Paddle Customer Portal
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    script(src="https://cdn.paddle.com/paddle/paddle.js")
-    script.
-      Paddle.Environment.set("sandbox");
-      Paddle.Setup({
-        vendor: 582,
-      });
     link(rel='stylesheet', href='/css/styles.css')
   body.body
+    p.mainHeader Billing History
     .row.card
       p.headerRow Receipts
       .seperator
-      .historyBox
-        each payment in payments
+      each payment in payments
+        .receiptBox
+          .leftBox
             p.leftHistory #{payment.payout_date}
+          .middleBox
             p.middleHistory #{payment.currency} #{payment.amount} 
-            a(href=payment.receipt_url target="_blank") View Receipt
+          .rightBox
+            if payment.is_paid == 0
+                a.rightHistory(href=payment.receipt_url target="_blank") Upcoming Payment
+            else             
+              a.rightHistory(href=payment.receipt_url target="_blank") View Receipt

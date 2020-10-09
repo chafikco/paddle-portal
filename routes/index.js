@@ -17,5 +17,7 @@ router.post("/save", credentialsController.saveCredentials);
 router.get("/manage", manageController.showPlan);
 router.get("/change", manageController.changePlan);
 router.get("/billinghistory", manageController.viewReceipts);
+router.get("/updatequantity/:quantity", manageController.updateQuantity);
+router.get("/updateplan/:plan", manageController.updatePlan);
 
 module.exports = router;
