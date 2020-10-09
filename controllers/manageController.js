@@ -55,3 +55,30 @@ exports.changePlan = (req, res) => {
     });
   });
 };
+
+exports.viewReceipts = (req, res) => {
+  // TODO: If the authentication details in variables.env are null, then redirect to /login.
+  console.log("view receipts function called")
+  let requestParameters = {
+    url: "https://sandbox-vendors.paddle.com/api/2.0/subscription/payments",
+    method: "post",
+    form: {
+      vendor_id: process.env.VENDOR_ID,
+      vendor_auth_code: `${process.env.AUTH_CODE}`,
+      subscription_id: process.env.SUB_ID,
+    },
+  };
+  request(requestParameters, function (error, response, data) {
+    if (error) {
+      callback(err, null);
+      return;
+    }
+    let json = JSON.parse(data);
+    console.log("Receipts function:", json.response);
+    res.render("receipts", {
+      title: "Billing History",
+      payments: json.response,
+      subscription_id: process.env.SUB_ID,
+    });
+  });
+};

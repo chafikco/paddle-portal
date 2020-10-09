@@ -29,12 +29,14 @@ html
         p.rightBilling Expires: #{response.payment_information.expiry_date}
       #update.submit(href="#!") Update Billing Details »
     .row.card
-      p.headerRow Billing History
+      p.headerRow Last Payment
       .seperator
       .historyBox
         p.leftHistory #{response.last_payment.date}
         p.middleHistory #{response.last_payment.currency} #{response.last_payment.amount} 
-        p.rightHistory Plan ID #{response.plan_id} 
+        p.rightHistory Plan ID #{response.plan_id}
+      .button
+        a#history.submit(href="http://localhost:7777/billinghistory") View All Billing History »
       
   script.
     let updateUrl = "#{response.update_url}"

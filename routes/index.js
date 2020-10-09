@@ -16,5 +16,6 @@ router.post("/save", credentialsController.saveCredentials);
 // manage and change area
 router.get("/manage", manageController.showPlan);
 router.get("/change", manageController.changePlan);
+router.get("/billinghistory", manageController.viewReceipts);
 
 module.exports = router;
