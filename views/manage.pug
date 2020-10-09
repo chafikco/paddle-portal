@@ -11,25 +11,49 @@ html
       });
     link(rel='stylesheet', href='/css/styles.css')
   body.body
-    h2 Manage Subscription
+    p.manageHeader Manage Subscription
     .currentPlan.card
-      h4 Plan ID: #{response.subscription_id}
-      p Your next payment is due on #{response.next_payment.date} and will be for #{response.next_payment.currency} #{response.next_payment.amount} 
+      p.headerRow Current Plan - #{response.user_email} 
+      .seperator
+      p.planText Subscription ID: #{response.subscription_id}
+      p.priceText #{response.next_payment.currency} #{response.next_payment.amount}
+      p.billingText Your subscription renews on #{response.next_payment.date}
       .buttons  
         a#change.submit(href="http://localhost:7777/change") Change Plan »
         #cancel.submit(href="#!") Cancel Plan »
     .row.card
-      h4 Payment Method
-      p.paymentDetails #{response.payment_information.card_type}: •••• #{response.payment_information.last_four_digits} Expires: #{response.payment_information.expiry_date}
+      p.headerRow Payment Method
+      .seperator
+      .billingBox
+        p.leftBilling #{response.payment_information.card_type}: •••• #{response.payment_information.last_four_digits}
+        p.rightBilling Expires: #{response.payment_information.expiry_date}
       #update.submit(href="#!") Update Billing Details »
     .row.card
-      h4 Billing History
-      p Your last payment was on #{response.last_payment.date} and was for #{response.last_payment.currency} #{response.last_payment.amount} 
+      p.headerRow Billing History
+      .seperator
+      .historyBox
+        p.leftHistory #{response.last_payment.date}
+        p.middleHistory #{response.last_payment.currency} #{response.last_payment.amount} 
+        p.rightHistory Plan ID #{response.plan_id} 
       
   script.
-    openCheckout = () => {
+    let updateUrl = "#{response.update_url}"
+    let cancelUrl = "#{response.cancel_url}"
+    let parseUpdateUrl = new DOMParser().parseFromString(updateUrl, "text/html");
+    let parseCancelUrl = new DOMParser().parseFromString(cancelUrl, "text/html");
+    let update = parseUpdateUrl.documentElement.textContent;  
+    let cancel = parseCancelUrl.documentElement.textContent;  
+    updateCard = () => {
       Paddle.Checkout.open({
-        override: '#{response.update_url}'
+        override: `${update}`
       });
     }
-    document.getElementById('update').addEventListener('click', openCheckout, false);
+    cancelCard = () => {
+      Paddle.Checkout.open({
+        override: `${cancel}`
+      });
+    }
+    document.getElementById('update').addEventListener('click', updateCard, false);
+    document.getElementById('cancel').addEventListener('click', cancelCard, false);
+
+    
