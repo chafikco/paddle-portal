@@ -27,8 +27,3 @@ A paddle hosted customer portal
 * Blacklist / whitelist subscriptions plans
 * Access via authenticated link in email & webhook
 * Separate OAuth system that cross references email on file with email of signup, then auto authenticates and generates unique URL and offers list of subscription ID’s to manage
-
-Resources:
-
-https://stripe.com/docs/billing/subscriptions/integrating-customer-portal
-https://billing.stripe.com/session/d0vdciNQ9KglEIbhHkxColda6g5xiXF6
